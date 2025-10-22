@@ -21,12 +21,32 @@ cd Johs-Salinas-prueba-node
 pnpm install
 ```
 
-### **3.** Levantar contenedor MySQL con Docker
+### **3.** Configurar variables de entorno
+
+**Linux/Mac:**
+```bash
+cp .env.example .env
+```
+
+**Windows:**
+```powershell
+Copy-Item .env.example .env
+```
+
+o
+
+```cmd
+copy .env.example .env
+```
+
+✅ El archivo `.env.example` ya contiene los valores correctos para Docker.
+
+### **4.** Levantar contenedor MySQL con Docker
 ```bash
 docker-compose up -d
 ```
 
-### **4.** Crear tablas y cargar datos iniciales
+### **5.** Crear tablas y cargar datos iniciales
 ```bash
 pnpm seed
 ```
@@ -34,17 +54,31 @@ pnpm seed
 1. **Sincronización de DB**: Crea todas las tablas según los modelos de Sequelize
 2. **Carga de datos**: Inserta datos de prueba en las tablas
    - 10 categorías
-   - 3 tiendas (Bucaramanga)
+   - 3 tiendas
    - 15 productos
    - Stock por tienda
    - 5 promociones
    - Pedidos de prueba
 
-### **5.** Ejecutar tests
+### **6.** Ejecutar tests
 ```bash
 pnpm test
 ```
 ✅ Ejecuta 13 tests que validan los 4 endpoints.
+
+### **7** Revisión manual del servidor en desarrollo
+```bash
+pnpm dev
+```
+
+### **8** Revisión manual del servidor como se usaría en producción
+```bash
+pnpm build
+```
+
+```bash
+pnpm start
+```
 
 ---
 
